@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Responsive Layout Fix — a demo project showing how a broken mobile product card layout was fixed.">
+  <title>Responsive Layout Fix — Demo Project</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <p class="brand">Responsive Layout Fix</p>
+      <button class="preview-toggle" id="previewToggle" type="button" aria-pressed="false">
+        <span class="preview-toggle__label">Mobile preview</span>
+        <span class="preview-toggle__state" id="previewState">Off</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <p class="eyebrow">Demo project</p>
+      <h1>Fixing a product card that breaks on mobile screens</h1>
+      <p class="hero__text">
+        A common responsive layout bug: a product card with a fixed width and oversized
+        inner elements pushes past the edge of a phone screen, creating horizontal
+        scrolling and clipping the button. Below you can compare the broken version
+        with the corrected one.
+      </p>
+    </section>
+
+    <section class="comparison container" aria-label="Before and after comparison">
+      <article class="panel panel--before">
+        <header class="panel__head">
+          <h2 class="panel__title">Before</h2>
+          <p class="panel__subtitle">Broken mobile layout</p>
+        </header>
+
+        <div class="panel__stage">
+          <div class="device device--broken">
+            <div class="product-card product-card--broken">
+              <div class="product-card__image" role="img" aria-label="Placeholder image of a pair of wireless headphones"></div>
+              <div class="product-card__body">
+                <p class="product-card__category">Audio</p>
+                <h3 class="product-card__name">Wireless Headphones Aero 300</h3>
+                <p class="product-card__price">$149.00</p>
+                <p class="product-card__desc">
+                  Over-ear headphones with active noise cancelling, 40 hours of
+                  battery life and a comfortable memory-foam headband.
+                </p>
+                <button class="product-card__button" type="button">Add to cart</button>
+              </div>
+            </div>
+          </div>
+          <p class="panel__note panel__note--bad">
+            The card keeps a fixed width, so it overflows the screen and the button
+            is pushed out of view.
+          </p>
+        </div>
+      </article>
+
+      <article class="panel panel--after">
+        <header class="panel__head">
+          <h2 class="panel__title">After</h2>
+          <p class="panel__subtitle">Fixed responsive layout</p>
+        </header>
+
+        <div class="panel__stage">
+          <div class="device device--fixed">
+            <div class="product-card">
+              <div class="product-card__image" role="img" aria-label="Placeholder image of a pair of wireless headphones"></div>
+              <div class="product-card__body">
+                <p class="product-card__category">Audio</p>
+                <h3 class="product-card__name">Wireless Headphones Aero 300</h3>
+                <p class="product-card__price">$149.00</p>
+                <p class="product-card__desc">
+                  Over-ear headphones with active noise cancelling, 40 hours of
+                  battery life and a comfortable memory-foam headband.
+                </p>
+                <button class="product-card__button" type="button">Add to cart</button>
+              </div>
+            </div>
+          </div>
+          <p class="panel__note panel__note--good">
+            The card now uses <code>max-width: 100%</code> and fluid spacing, so it
+            fits any screen and the button stays visible.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section class="fixed container" aria-labelledby="fixed-title">
+      <h2 id="fixed-title">What was fixed</h2>
+      <ol class="fixed__list">
+        <li class="fixed__item">
+          <span class="fixed__number">1</span>
+          <div>
+            <h3>Prevented horizontal overflow</h3>
+            <p>
+              The card width changed from a hard-coded value to
+              <code>max-width: 100%</code>, so content can no longer extend past the
+              viewport and cause horizontal scrolling.
+            </p>
+          </div>
+        </li>
+        <li class="fixed__item">
+          <span class="fixed__number">2</span>
+          <div>
+            <h3>Improved responsive spacing</h3>
+            <p>
+              Fixed pixel margins were replaced with fluid padding and media queries,
+              keeping comfortable spacing on both wide and narrow screens.
+            </p>
+          </div>
+        </li>
+        <li class="fixed__item">
+          <span class="fixed__number">3</span>
+          <div>
+            <h3>Made the button fit smaller screens</h3>
+            <p>
+              The button now uses <code>width: 100%</code> with a flexible container
+              instead of a fixed width, so it always fits inside the card.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="stack container" aria-labelledby="stack-title">
+      <h2 id="stack-title">Technologies used</h2>
+      <p class="stack__text">
+        This page is built with plain HTML5, CSS3 and a small amount of vanilla
+        JavaScript. There are no frameworks, no build tools, no npm packages and no
+        external services — the site is fully static and can be hosted for free on
+        GitHub Pages.
+      </p>
+      <ul class="stack__tags">
+        <li>HTML5 (semantic markup)</li>
+        <li>CSS3 (Flexbox, media queries)</li>
+        <li>Vanilla JavaScript (preview toggle)</li>
+        <li>Static hosting ready</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Demo project — created for portfolio purposes.</p>
+      <p class="site-footer__note">Built with HTML, CSS and vanilla JavaScript. No frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
